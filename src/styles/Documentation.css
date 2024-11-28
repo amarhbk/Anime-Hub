@@ -1,0 +1,267 @@
+.documentation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--text-primary);
+}
+
+.documentation-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.doc-section {
+  margin-bottom: 4rem;
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doc-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tech-item {
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tech-item h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.tech-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tech-item li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.tech-item li::before {
+  content: "→";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+}
+
+.api-docs {
+  padding: 1rem;
+}
+
+.api-docs h3 {
+  color: var(--primary-color);
+  margin: 2rem 0 1rem;
+}
+
+.endpoint-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.endpoint {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.endpoint h4 {
+  color: var(--primary-color);
+  margin: 0 0 0.5rem;
+}
+
+.endpoint code {
+  display: inline-block;
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  font-family: monospace;
+  color: var(--primary-color);
+}
+
+.api-example pre {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  line-height: 1.4;
+}
+
+.structure pre {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  line-height: 1.4;
+}
+
+.user-guide {
+  padding: 1rem;
+}
+
+.guide-section {
+  margin-bottom: 3rem;
+}
+
+.guide-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.guide-section ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+.guide-section ol li {
+  counter-increment: item;
+  margin-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  position: relative;
+}
+
+.guide-section ol li::before {
+  content: counter(item);
+  background: var(--primary-color);
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.feature-card {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.feature-card li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.feature-card li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tip h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.shortcuts table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.shortcuts th,
+.shortcuts td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--bg-primary);
+}
+
+.shortcuts th {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.shortcuts kbd {
+  background: var(--bg-primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .documentation-container {
+    padding: 1rem;
+  }
+
+  .doc-section {
+    padding: 1.5rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .documentation-container h1 {
+    font-size: 2rem;
+  }
+
+  .feature-cards,
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-section ol li {
+    padding-left: 2rem;
+  }
+}

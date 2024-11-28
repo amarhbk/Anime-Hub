@@ -1,0 +1,152 @@
+.anime-details-panel {
+  position: fixed;
+  top: 80px; /* Below navbar */
+  right: 0;
+  width: 400px;
+  height: calc(100vh - 80px);
+  background: var(--card-bg);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.details-content {
+  padding: 1.5rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  line-height: 1;
+  z-index: 1;
+}
+
+.details-header {
+  margin-bottom: 2rem;
+}
+
+.details-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.details-info h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.japanese-title {
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.details-section {
+  margin-bottom: 2rem;
+}
+
+.details-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.details-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.genres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genre-tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+}
+
+.episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.episode-item {
+  padding: 1rem;
+  background: var(--card-bg-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.episode-item:hover {
+  background: var(--card-bg-hover);
+}
+
+.episode-item h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.episode-synopsis {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Theme variables */
+:root {
+  --text-primary: #333;
+  --text-secondary: #666;
+  --card-bg: #fff;
+  --card-bg-secondary: #f5f5f5;
+  --card-bg-hover: #eee;
+  --tag-bg: #e0e0e0;
+  --tag-text: #333;
+}
+
+body.dark-theme {
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --card-bg: #2a2a2a;
+  --card-bg-secondary: #333;
+  --card-bg-hover: #444;
+  --tag-bg: #444;
+  --tag-text: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .anime-details-panel {
+    width: 100%;
+    transform: translateX(100%);
+  }
+
+  .anime-details-panel.open {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,286 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.anime-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.anime-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.anime-info {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.anime-title {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.anime-details {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.anime-details p {
+  margin: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--button-hover);
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.page-container {
+  padding: 2rem;
+  transition: margin-right 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.page-container.with-details {
+  margin-right: 400px;
+  width: calc(100% - 400px);
+}
+
+.anime-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.view-details-btn,
+.watchlist-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.view-details-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.view-details-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.watchlist-btn {
+  background-color: var(--watchlist-btn-bg);
+  color: var(--watchlist-btn-text);
+}
+
+.watchlist-btn:hover {
+  background-color: var(--watchlist-btn-hover);
+}
+
+.watchlist-btn.in-watchlist {
+  background-color: var(--watchlist-btn-active);
+  color: var(--watchlist-btn-active-text);
+}
+
+.watchlist-btn.in-watchlist:hover {
+  background-color: var(--watchlist-btn-active-hover);
+}
+
+.anime-details-panel {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  width: 400px;
+  height: calc(100vh - 80px);
+  background: var(--card-bg);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.anime-details-panel.open {
+  transform: translateX(0);
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background: var(--close-btn-bg);
+  border: none;
+  border-radius: 50%;
+  color: var(--close-btn-text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+  z-index: 101;
+}
+
+.close-button:hover {
+  background: var(--close-btn-hover);
+  transform: scale(1.1);
+}
+
+.empty-watchlist {
+  text-align: center;
+  padding: 3rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.empty-watchlist h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.empty-watchlist p {
+  color: var(--text-secondary);
+}
+
+/* Dark theme variables */
+:root {
+  --card-bg: white;
+  --text-secondary: #666;
+  --button-bg: #4a90e2;
+  --button-text: white;
+  --button-hover: #357abd;
+  --watchlist-btn-bg: #e0e0e0;
+  --watchlist-btn-text: #333;
+  --watchlist-btn-hover: #d0d0d0;
+  --watchlist-btn-active: #4caf50;
+  --watchlist-btn-active-text: white;
+  --watchlist-btn-active-hover: #43a047;
+  --close-btn-bg: rgba(0, 0, 0, 0.1);
+  --close-btn-text: #333;
+  --close-btn-hover: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme {
+  --card-bg: #2a2a2a;
+  --text-secondary: #aaa;
+  --button-bg: #4a90e2;
+  --button-text: white;
+  --button-hover: #357abd;
+  --watchlist-btn-bg: #424242;
+  --watchlist-btn-text: #fff;
+  --watchlist-btn-hover: #505050;
+  --watchlist-btn-active: #388e3c;
+  --watchlist-btn-active-text: white;
+  --watchlist-btn-active-hover: #2e7d32;
+  --close-btn-bg: rgba(255, 255, 255, 0.1);
+  --close-btn-text: #fff;
+  --close-btn-hover: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-container.with-details {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .anime-details-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .anime-image {
+    height: 400px;
+  }
+}
